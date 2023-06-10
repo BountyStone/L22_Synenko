@@ -1,0 +1,48 @@
+﻿<Window x:Class="L22_Synenko.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Text Editor" Height="450" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="New" Click="NewFileMenuItem_Click"/>
+                <MenuItem Header="Open" Click="OpenFileMenuItem_Click"/>
+                <MenuItem Header="Save" Click="SaveFileMenuItem_Click"/>
+                <Separator/>
+                <MenuItem Header="Exit" Click="ExitMenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <Label Content="Font Family"/>
+                <ComboBox x:Name="FontFamilyComboBox" SelectedValuePath="Source"/>
+                <Label Content="Font Size"/>
+                <ComboBox x:Name="FontSizeComboBox"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Italic" Click="ItalicButton_Click"/>
+                    <Button Content="Underline" Click="UnderlineButton_Click"/>
+                    <Button Content="Bold" Click="BoldButton_Click"/>
+                </StackPanel>
+                <Label Content="Text Alignment"/>
+                <ComboBox x:Name="TextAlignmentComboBox">
+                    <ComboBoxItem Content="Left" Tag="Left"/>
+                    <ComboBoxItem Content="Center" Tag="Center"/>
+                    <ComboBoxItem Content="Right" Tag="Right"/>
+                </ComboBox>
+            </StackPanel>
+
+            <RichTextBox x:Name="Editor" Grid.Column="1" AcceptsTab="True"/>
+        </Grid>
+    </Grid>
+</Window>
